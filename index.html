@@ -16,14 +16,28 @@
       color: #fff;
     }
   </style>
-<script>
-  window.pixelId = "69012e55c442991f00824a8e";
-  var a = document.createElement("script");
-  a.setAttribute("async", "");
-  a.setAttribute("defer", "");
-  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-  document.head.appendChild(a);
-</script>
+
+  <script>
+    window.pixelId = "69012e55c442991f00824a8e";
+    var a = document.createElement("script");
+    a.setAttribute("async", "");
+    a.setAttribute("defer", "");
+    a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+    document.head.appendChild(a);
+  </script>
+
+  <!-- SCRIPT DE CONFETTI -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    // Dispara confete ao carregar a página
+    window.addEventListener("load", function () {
+      confetti({
+        particleCount: 200,
+        spread: 90,
+        origin: { y: 0.6 }
+      });
+    });
+  </script>
 
 </head>
 <body class="min-h-screen flex flex-col items-center justify-center px-4 text-center">
@@ -86,7 +100,6 @@
       if (params.toString()) {
         const btn = document.getElementById('utmButton');
         let baseUrl = btn.getAttribute('href');
-        // Garante que não tem ? duplicado
         if (baseUrl.includes('?')) {
           baseUrl += '&' + params.toString();
         } else {
